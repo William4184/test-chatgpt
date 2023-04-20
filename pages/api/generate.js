@@ -30,6 +30,7 @@ export default async function (req, res) {
       model: "text-davinci-003",
       prompt: generatePrompt(animal),
       temperature: 0.6,
+      max_tokens: 100
     });
     res.status(200).json({ result: completion.data.choices[0].text });
   } catch(error) {
@@ -51,12 +52,12 @@ export default async function (req, res) {
 function generatePrompt(animal) {
   const capitalizedAnimal =
     animal[0].toUpperCase() + animal.slice(1).toLowerCase();
-  return `Suggest three names for an animal that is a superhero.
+  return `Write a one line product description for product listed on an online store.
 
-Animal: Cat
-Names: Captain Sharpclaw, Agent Fluffball, The Incredible Feline
-Animal: Dog
-Names: Ruff the Protector, Wonder Canine, Sir Barks-a-Lot
-Animal: ${capitalizedAnimal}
-Names:`;
+Product: Hair dryer
+Product description: Dry your hair quickly and easily without damaging it using this revolutionary hair dryer
+Product: Grip trainer
+Product description: Build your fingers and forearms with this fully adjustable grip trainer that allows you to increase the resistance steadily over time
+Product: ${capitalizedAnimal}
+Product description:`;
 }
