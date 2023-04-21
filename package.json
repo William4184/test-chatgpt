@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node ./index2js"
+    "start": "node ."
   },
   "dependencies": {
     "next": "^13.1.1",
